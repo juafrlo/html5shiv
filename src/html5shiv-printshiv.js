@@ -491,7 +491,11 @@
   html5.type += ' print';
   html5.shivPrint = shivPrint;
 
-  // shiv for print
-  shivPrint(document);
+  // Wait for onload to avoid load document error in IE8
+  window.onload = function() { 
+    // shiv for print
+    shivPrint(document);
+  }
+
 
 }(this, document));
